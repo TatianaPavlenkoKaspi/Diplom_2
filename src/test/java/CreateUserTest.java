@@ -18,7 +18,7 @@ public class CreateUserTest {
     @Before
     public void setUp() {
         stellarBurgersClient = new StellarBurgersClient();
-        user  = User.getRandom();
+        user  = user.getRandom();
     }
 
     @After
