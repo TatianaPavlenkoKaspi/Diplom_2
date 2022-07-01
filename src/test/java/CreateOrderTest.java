@@ -1,4 +1,7 @@
+import client.StellarBurgersClient;
 import io.restassured.response.ValidatableResponse;
+import models.Order;
+import models.User;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

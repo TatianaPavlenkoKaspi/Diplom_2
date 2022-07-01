@@ -1,3 +1,6 @@
+package models;
+
+import client.StellarBurgersClient;
 import io.restassured.response.ValidatableResponse;
 import java.util.ArrayList;
 

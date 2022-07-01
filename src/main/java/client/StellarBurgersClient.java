@@ -1,11 +1,16 @@
+package client;
+
 import io.qameta.allure.Step;
 import io.restassured.http.ContentType;
 import io.restassured.response.ValidatableResponse;
+import models.Order;
+import models.User;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import static io.restassured.RestAssured.given;
 
-public class StellarBurgersClient extends StellarBurgersRestClient{
+public class StellarBurgersClient extends StellarBurgersRestClient {
 
     private static final String CREATE_USER_PATH = "api/auth/register";
     private static final String ORDER_PATH = "api/orders";
@@ -133,7 +138,7 @@ public class StellarBurgersClient extends StellarBurgersRestClient{
                 .then();
     }
 
-    @Step("Get Orders Authorized User")
+    @Step("Get Orders Authorized models.User")
     public ValidatableResponse getOrdersAuthorizedUser(User user, String authorization) {
 
         return given()
@@ -144,7 +149,7 @@ public class StellarBurgersClient extends StellarBurgersRestClient{
                 .get(ORDER_PATH)
                 .then();
     }
-    @Step("Get Orders Unauthorized User")
+    @Step("Get Orders Unauthorized models.User")
     public ValidatableResponse getOrdersUnauthorizedUser() {
 
         return given()

@@ -1,5 +1,7 @@
+import client.StellarBurgersClient;
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.ValidatableResponse;
+import models.User;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -46,7 +48,7 @@ public class CreateUserTest {
 
     @Test
     @DisplayName("Cannot create an existing user")
-    public void cannotCreateAnExitingUser(){
+    public void cannotCreateAnExistingUser(){
         ValidatableResponse createResponse = stellarBurgersClient.createNewUser(user);
         email = createResponse.extract().body().path("user.email");
         authorization = createResponse.extract().body().path("accessToken");
