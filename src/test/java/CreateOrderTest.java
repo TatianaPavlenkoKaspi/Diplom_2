@@ -30,11 +30,11 @@ public class CreateOrderTest {
 
     @Test
     public void createOrderWithAuthorization(){
-        user  =  User.getRandom();
+        user = User.getRandom();
         ValidatableResponse orderResponse = stellarBurgersClient.createNewUser(user);
         authorization = orderResponse.extract().body().path("accessToken");
-        ValidatableResponse createOrder  = stellarBurgersClient.createOrderWithAuthorization(order, authorization);
-        int statusCode = orderResponse.extract().statusCode();
+        ValidatableResponse createOrderResponse = stellarBurgersClient.createOrderWithAuthorization(order, authorization);
+        int statusCode = createOrderResponse.extract().statusCode();
         boolean errorStatus = orderResponse.extract().body().path("success");
 
         assertThat("Неверный код ответа", statusCode, equalTo(SC_OK));
